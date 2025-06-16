@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "Bash(./send_message.sh:*)",
-      "Bash(open:*)"
+      "Bash(open:*)",
+      "Bash(npx create-next-app:*)",
+      "Bash(true)",
+      "Bash(rmdir:*)",
+      "Bash(npx:*)"
     ],
     "deny": []
   }
