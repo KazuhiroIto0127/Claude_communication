@@ -14,8 +14,27 @@ The goal is to test collaborative AI communication patterns where one Claude Cod
 
 This is a minimal repository currently containing only documentation. The project is in Japanese and focuses on AI-to-AI communication workflows using Claude Code.
 
+## Usage
+
+Run the communication setup:
+```bash
+./setup_communication.sh
+```
+
+This creates a tmux session with two panes:
+- Left pane: Instructor Claude Code (gives instructions)
+- Right pane: Worker Claude Code (executes tasks)
+
+## Files
+
+- `setup_communication.sh` - tmux session setup script
+- `instructor_prompts.md` - Guidelines for the instructor role
+- `worker_prompts.md` - Guidelines for the worker role  
+- `communication_protocol.md` - Communication format and workflow
+- `demo_scenario.md` - Example scenarios to test the system
+
 ## Development Notes
 
 - The repository uses Japanese for documentation and communication
 - This is an experimental project exploring multi-instance Claude Code collaboration
-- No build tools, dependencies, or code execution commands are currently present
+- Follow the communication protocol for effective AI-to-AI collaboration
