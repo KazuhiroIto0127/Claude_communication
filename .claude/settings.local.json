@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./send_message.sh:*)",
+      "Bash(open:*)"
+    ],
+    "deny": []
+  }
+}
