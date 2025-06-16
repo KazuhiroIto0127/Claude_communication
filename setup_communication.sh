@@ -21,13 +21,13 @@ tmux split-window -h -t $SESSION_NAME:0
 tmux send-keys -t $SESSION_NAME:0.0 'echo "=== 指示役 Claude Code ==="' C-m
 tmux send-keys -t $SESSION_NAME:0.0 'echo "このpaneは指示を出すClaude Codeです"' C-m
 tmux send-keys -t $SESSION_NAME:0.0 'echo "右のpaneの作業役に指示を出してください"' C-m
-tmux send-keys -t $SESSION_NAME:0.0 'claude-code' C-m
+tmux send-keys -t $SESSION_NAME:0.0 'claude' C-m
 
 # 右pane: 作業役 (Worker)
 tmux send-keys -t $SESSION_NAME:0.1 'echo "=== 作業役 Claude Code ==="' C-m
 tmux send-keys -t $SESSION_NAME:0.1 'echo "このpaneは作業を実行するClaude Codeです"' C-m
 tmux send-keys -t $SESSION_NAME:0.1 'echo "左のpaneからの指示を待機中..."' C-m
-tmux send-keys -t $SESSION_NAME:0.1 'claude-code' C-m
+tmux send-keys -t $SESSION_NAME:0.1 'claude' C-m
 
 # セッションにアタッチ
 tmux attach-session -t $SESSION_NAME
