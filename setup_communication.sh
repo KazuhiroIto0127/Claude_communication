@@ -21,17 +21,13 @@ tmux split-window -v -t $SESSION_NAME:0
 tmux send-keys -t $SESSION_NAME:0.0 'echo "=== 指示役 Claude Code ==="' C-m
 tmux send-keys -t $SESSION_NAME:0.0 'echo "この上paneは指示を出すClaude Codeです"' C-m
 tmux send-keys -t $SESSION_NAME:0.0 'echo "準備完了：タスクを貼り付けてください"' C-m
-tmux send-keys -t $SESSION_NAME:0.0 'claude' C-m
-sleep 2
-tmux send-keys -t $SESSION_NAME:0.0 '$(cat instructor_auto_prompt.md)' C-m
+tmux send-keys -t $SESSION_NAME:0.0 'claude "$(cat instructor_auto_prompt.md)"' C-m
 
 # 下pane: 作業役 (Worker)
 tmux send-keys -t $SESSION_NAME:0.1 'echo "=== 作業役 Claude Code ==="' C-m
 tmux send-keys -t $SESSION_NAME:0.1 'echo "この下paneは作業を実行するClaude Codeです"' C-m
 tmux send-keys -t $SESSION_NAME:0.1 'echo "準備完了：指示を待機中..."' C-m
-tmux send-keys -t $SESSION_NAME:0.1 'claude' C-m
-sleep 2
-tmux send-keys -t $SESSION_NAME:0.1 '$(cat worker_auto_prompt.md)' C-m
+tmux send-keys -t $SESSION_NAME:0.1 'claude "$(cat worker_auto_prompt.md)"' C-m
 
 # セッションにアタッチ
 tmux attach-session -t $SESSION_NAME
