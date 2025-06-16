@@ -9,10 +9,10 @@ SESSION_NAME="claude_communication"
 get_target() {
     case $1 in
         "instructor"|"指示役")
-            echo "$SESSION_NAME:instructor"
+            echo "$SESSION_NAME:0.0"
             ;;
         "worker"|"作業役")
-            echo "$SESSION_NAME:worker"
+            echo "$SESSION_NAME:0.1"
             ;;
         *)
             echo "不明なターゲット: $1"
@@ -44,12 +44,12 @@ send_message() {
     # メッセージを送信
     echo "メッセージを送信中: $target → '$message'"
     
-    # プロンプトをクリア
-    tmux send-keys -t $tmux_target C-c
-    sleep 0.5
-    
-    # メッセージを送信
-    tmux send-keys -t $tmux_target "$message" C-m
+    # 確実にプロンプトをクリアしてメッセージを送信
+    tmux send-keys -t "$tmux_target" C-c
+    sleep 0.3
+    tmux send-keys -t "$tmux_target" "$message"
+    sleep 0.1
+    tmux send-keys -t "$tmux_target" C-m
     
     echo "送信完了"
 }
